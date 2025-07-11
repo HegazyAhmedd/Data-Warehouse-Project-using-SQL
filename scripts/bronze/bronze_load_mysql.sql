@@ -40,8 +40,8 @@
 --   - MySQL Server 8.0.x
 --   - Windows OS with local_infile enabled
 --
--- 📅 Last Updated: [Insert Date Here]
--- 👤 Author: [Your Name]
+-- 
+-- 👤 Author: [Hegazy ahmed]
 -- ===============================================================
 
 
