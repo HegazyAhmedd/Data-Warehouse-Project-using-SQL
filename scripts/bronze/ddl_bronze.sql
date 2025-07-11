@@ -5,9 +5,16 @@
 -- 🛠️ Purpose     : Defines raw staging tables for ERP and CRM sources
 -- 📝 Description :
 --   This script creates raw data ingestion tables in the `bronze` schema.
---   These tables are the first layer of the Medallion Architecture and are
---   used to ingest untransformed data from CSV files (ERP and CRM systems).
--- 
+--   These tables form the **first layer** of the Medallion Architecture and
+--   are designed to ingest **untransformed, raw CSV data** from ERP and CRM systems.
+--
+--   ⚠️ Date Handling Note:
+--     ▸ Date fields are intentionally defined as `VARCHAR` instead of `DATE`
+--       because MySQL lacks flexible native support for validating or parsing
+--       multiple input date formats during raw ingestion.
+--     ▸ Actual type enforcement and format normalization are deferred
+--       to the Silver layer transformations (e.g., using STR_TO_DATE).
+--
 --   ❖ Tables Created:
 --     - bronze.erp_cust_az12        : Customer basic info from ERP
 --     - bronze.erp_loc_a101         : Customer location mapping
@@ -16,7 +23,8 @@
 --     - bronze.crm_prd_info         : Product information from CRM
 --     - bronze.crm_sales_details    : Sales transactions from CRM
 --
---   🧱 These tables are the foundation for Silver layer transformations.
+--   🧱 These tables serve as the foundation for downstream cleaning, parsing,
+--      and loading into the Silver layer.
 --
 -- 💾 Source Format : CSV files via LOAD DATA INFILE
 -- 🌐 Target Engine : MySQL
