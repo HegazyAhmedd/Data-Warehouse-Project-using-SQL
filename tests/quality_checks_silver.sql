@@ -106,9 +106,6 @@ SELECT DISTINCT LENGTH(cid) FROM silver.erp_cust_az12;
 SELECT MIN(bdate) AS max_birth_date, MAX(bdate) AS min_birth_date 
 FROM silver.erp_cust_az12;
 
--- Birth Date Inspection
-SELECT bdate FROM silver.erp_cust_az12 
-ORDER BY bdate DESC;
 
 -- Gender Distribution
 SELECT gen, COUNT(*) FROM silver.erp_cust_az12 
